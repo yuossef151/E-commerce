@@ -1,30 +1,64 @@
-// src/utils/toastService.js
 import toast from "react-hot-toast";
 
-// إشعار تسجيل الدخول
-export const notifyLoginFirst = () => {
-  toast.error("Please login first to add products to favorites!");
+const baseStyle = {
+  borderRadius: "14px",
+  padding: "12px 16px",
+  fontSize: "14px",
+  fontWeight: 600,
 };
 
-// إشعارات الـ Wishlist
+const successOptions = {
+  style: {
+    ...baseStyle,
+    background: "#8A1C38",
+    color: "#ffffff",
+    boxShadow: "0 10px 30px rgba(138, 28, 56, 0.30)",
+  },
+  iconTheme: { primary: "#ffffff", secondary: "#8A1C38" },
+};
+
+const errorOptions = {
+  style: {
+    ...baseStyle,
+    background: "#ffffff",
+    color: "#621428",
+    border: "1px solid #fca5a5",
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.12)",
+  },
+  iconTheme: { primary: "#dc2626", secondary: "#ffffff" },
+};
+
+const success = (message) => toast.success(message, successOptions);
+const error = (message) => toast.error(message, errorOptions);
+
+export const notifyLoginFirst = () => {
+  error("Please login first to continue.");
+};
+
 export const notifyAddedToWishlist = () => {
-  toast.success("Added to wishlist");
+  success("Added to wishlist");
 };
 
 export const notifyRemovedFromWishlist = () => {
-  toast.success("Removed from wishlist");
+  success("Removed from wishlist");
 };
 
-// إشعارات الـ Cart (العربة)
 export const notifyAddToCart = () => {
-  toast.success("Added to cart successfully!");
+  success("Added to cart successfully!");
 };
 
 export const notifyRemovedFromCart = () => {
-  toast.success("Removed from cart");
+  success("Removed from cart");
 };
 
-// إشعار خطأ عام
 export const notifyError = () => {
-  toast.error("Something went wrong!");
+  error("Something went wrong!");
+};
+
+export const notifyLoginSuccess = () => {
+  success("Logged in successfully!");
+};
+
+export const notifyLogoutSuccess = () => {
+  success("Logged out successfully!");
 };

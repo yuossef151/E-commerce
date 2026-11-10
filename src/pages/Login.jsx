@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Loader2, AlertCircle, EyeOff, Eye } from "lucide-react";
 import { loginUser, checkIsAdmin } from "../API/API";
+import { notifyLoginSuccess } from "../utils/toastService"; 
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -52,6 +53,8 @@ export default function Login() {
         setServerError(getAuthErrorMessage(error));
         return;
       }
+
+      notifyLoginSuccess();
 
       const { adminData } = await checkIsAdmin(data.user.email);
 

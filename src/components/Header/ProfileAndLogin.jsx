@@ -1,13 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { User, Heart, ShoppingCart, Package, LogOut } from "lucide-react";
+import { User, Heart, ShoppingCart, Package, LogOut, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "../../Supabase";
 import { getWishlist, getCart } from "../../API/API";
+import { notifyLogoutSuccess } from "../../utils/toastService";
 
 export default function ProfileAndLogin() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loggingOut, setLoggingOut] = useState(false); 
   const [wishlistCount, setWishlistCount] = useState(0);
   const [cartCount, setCartCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -82,9 +84,21 @@ export default function ProfileAndLogin() {
   }, []);
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-    setIsOpen(false);
-    navigate("/Login");
+    if (loggingOut) return;
+    try {
+      setLoggingOut(true); 
+
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      await supabase.auth.signOut();
+      setIsOpen(false);
+      notifyLogoutSuccess();
+      navigate("/Login");
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      setLoggingOut(false); 
+    }
   };
 
   if (loading) {
@@ -179,10 +193,17 @@ export default function ProfileAndLogin() {
 
                   <button
                     onClick={handleLogout}
-                    className="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition cursor-pointer text-left"
+                    disabled={loggingOut}
+                    className="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition cursor-pointer text-left disabled:opacity-50"
                   >
-                    <LogOut size={18} />
-                    <span className="font-medium">Logout</span>
+                    {loggingOut ? (
+                      <Loader2 size={18} className="animate-spin text-red-600" />
+                    ) : (
+                      <LogOut size={18} />
+                    )}
+                    <span className="font-medium">
+                      {loggingOut ? "Logging out..." : "Logout"}
+                    </span>
                   </button>
                 </motion.div>
               )}
@@ -191,10 +212,10 @@ export default function ProfileAndLogin() {
         </div>
       ) : (
         <div className="flex gap-2 sm:gap-3">
-          <button className="text-white bg-[#8A1C38] font-medium text-sm sm:text-[18px] py-1.5 px-3 sm:py-2 sm:px-4 rounded-xl sm:rounded-[15px] hover:bg-[#a52243] transition">
+          <button className="text-white bg-[#8A1C38] font-medium text-sm sm:text-[18px] py-1.5 px-3 sm:py-2 sm:px-4 rounded-xl sm:rounded-[15px] hover:bg-[#a52243] transition cursor-pointer">
             <NavLink to={"Login"}>Login</NavLink>
           </button>
-          <button className="bg-[#8A1C38] text-white font-medium text-sm sm:text-[18px] py-1.5 px-3 sm:py-2 sm:px-4 rounded-xl sm:rounded-[15px] hover:bg-[#a52243] transition">
+          <button className="bg-[#8A1C38] text-white font-medium text-sm sm:text-[18px] py-1.5 px-3 sm:py-2 sm:px-4 rounded-xl sm:rounded-[15px] hover:bg-[#a52243] transition cursor-pointer">
             <NavLink to={"Regester"}>Signup</NavLink>
           </button>
         </div>
