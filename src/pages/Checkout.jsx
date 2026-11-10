@@ -136,6 +136,9 @@ export default function Checkout() {
 
         setPlaced({ id: orderId, total: totalPrice });
         setItems([]);
+        
+        window.dispatchEvent(new Event("cartUpdated"));
+
         window.scrollTo({ top: 0, behavior: "smooth" });
       } catch (err) {
         console.error("Checkout error:", err);
@@ -250,7 +253,7 @@ export default function Checkout() {
   }
 
   return (
-    <main className=" lg:px-10 px-4 py-24 sm:py-28 pb-12  bg-[#e5e6e8]">
+    <main className="lg:px-10 px-4 py-24 sm:py-28 pb-12 bg-[#e5e6e8]">
       <h1 className="mb-6 sm:mb-8 flex items-center gap-3 text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#8f1a36]">
         <ShoppingCart size={30} className="sm:w-[34px] sm:h-[34px]" />
         Checkout
