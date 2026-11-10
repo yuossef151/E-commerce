@@ -209,7 +209,6 @@ export default function FeaturedSlider({ onLoaded }) {
 
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.035),transparent_65%)] pointer-events-none" />
 
-          {/* الرقم الخلفي */}
           <div
             aria-hidden="true"
             className="absolute right-4 top-4 sm:right-10 sm:top-10 flex text-6xl sm:text-8xl md:text-[180px] font-black leading-none select-none pointer-events-none"
@@ -246,7 +245,6 @@ export default function FeaturedSlider({ onLoaded }) {
             })}
           </div>
 
-          {/* المحتوى */}
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between min-h-[440px] md:min-h-[520px] px-5 pt-10 pb-14 md:px-16 md:pt-16 md:pb-20 gap-6 md:gap-8">
             <div
               key={`info-${current}`}
@@ -315,7 +313,6 @@ export default function FeaturedSlider({ onLoaded }) {
               </div>
             </div>
 
-            {/* صورة المنتج */}
             <div className="relative w-full md:w-[52%] h-[220px] sm:h-[260px] md:h-[390px] flex items-center justify-center">
               <div className="absolute w-[180px] h-[180px] sm:w-[230px] sm:h-[230px] md:w-[370px] md:h-[370px] rounded-full border border-white/[0.06]" />
 
@@ -362,7 +359,6 @@ export default function FeaturedSlider({ onLoaded }) {
             </div>
           </div>
 
-          {/* الباجينيشن (النقاط/الشرائط بالأسفل) */}
           {count > 1 && (
             <div className="absolute bottom-4 sm:bottom-6 left-5 sm:left-7 md:left-16 z-30 flex items-center gap-2">
               {featuredProducts.map((p, i) => (

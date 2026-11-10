@@ -177,7 +177,6 @@ export default function Checkout() {
     );
   }
 
-  // ORDER PLACED
   if (placed) {
     return (
       <main className="lg:px-10 px-4 py-24 sm:py-28">
@@ -229,7 +228,6 @@ export default function Checkout() {
     );
   }
 
-  // EMPTY CART
   if (items.length === 0) {
     return (
       <main className="lg:px-10 px-4 py-24 sm:py-28">
@@ -263,7 +261,6 @@ export default function Checkout() {
         noValidate
         className="grid items-start gap-6 lg:grid-cols-5"
       >
-        {/* LEFT: shipping + payment */}
         <div className="flex flex-col gap-6 lg:col-span-3">
           <section className="rounded-2xl sm:rounded-[28px] border border-gray-200 bg-white p-5 sm:p-7 md:p-9 shadow-sm">
             <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900">Delivery details</h2>
@@ -376,7 +373,6 @@ export default function Checkout() {
           </section>
         </div>
 
-        {/* RIGHT: summary */}
         <aside className="rounded-2xl sm:rounded-[28px] border border-gray-200 bg-white p-5 sm:p-7 md:p-9 shadow-sm lg:sticky lg:top-24 lg:col-span-2">
           <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900">Order summary</h2>
 

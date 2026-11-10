@@ -16,13 +16,11 @@ import {
   notifyError,
 } from "../../utils/toastService";
 
-// One shared copy of "how many of each product are in my cart", so every card
-// on every page shows the same number without asking the database again and again.
 const CartQuantityContext = createContext(null);
 
 export function CartQuantityProvider({ children }) {
-  const [quantities, setQuantities] = useState({}); // { [productId]: quantity }
-  const [busyId, setBusyId] = useState(null); // product being saved right now
+  const [quantities, setQuantities] = useState({}); 
+  const [busyId, setBusyId] = useState(null); 
 
   const refresh = useCallback(async () => {
     try {
@@ -35,15 +33,13 @@ export function CartQuantityProvider({ children }) {
   useEffect(() => {
     refresh();
 
-    // Sign in / sign out: reload (an empty cart when signed out).
-    // setTimeout avoids calling Supabase inside its own auth callback.
+
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(() => {
       setTimeout(refresh, 0);
     });
 
-    // Other pages (cart page, header) announce changes with this event
     window.addEventListener("cartUpdated", refresh);
 
     return () => {
@@ -52,7 +48,6 @@ export function CartQuantityProvider({ children }) {
     };
   }, [refresh]);
 
-  // quantity 0 removes the product from the cart
   const setQuantity = useCallback(
     async (productId, nextQty) => {
       const {
@@ -77,7 +72,6 @@ export function CartQuantityProvider({ children }) {
           return copy;
         });
 
-        // Only toast when the product enters or leaves the cart (not on every + / -)
         if (before === 0 && nextQty > 0) notifyAddToCart();
         else if (nextQty <= 0) notifyRemovedFromCart();
 

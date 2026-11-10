@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { getProducts } from "../../API/API";
 
-// Counts up from 0 when the number scrolls into view
 function CountUp({ to, decimals = 0, suffix = "" }) {
   const ref = useRef(null);
   const [value, setValue] = useState(0);
@@ -66,7 +65,6 @@ export default function AboutStats() {
     };
   }, []);
 
-  // Only "Products" is real (from the database). Edit the others to your own numbers.
   const stats = [
     { label: "Products in store", to: productCount, suffix: "+" },
     { label: "Happy customers", to: 12000, suffix: "+" },

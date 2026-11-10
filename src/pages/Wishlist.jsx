@@ -64,7 +64,6 @@ export default function Wishlist() {
       ) : (
         <div className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
           
-          {/* عرض الجدول للشاشات المتوسطة والكبيرة (md فما فوق) */}
           <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
@@ -82,7 +81,6 @@ export default function Wishlist() {
 
                   return (
                     <tr key={item.id} className="hover:bg-gray-50/50 transition">
-                      {/* صورة المنتج */}
                       <td className="py-4 px-6">
                         <img
                           src={product.image_url}
@@ -91,13 +89,11 @@ export default function Wishlist() {
                         />
                       </td>
 
-                      {/* اسم المنتج */}
                       <td className="py-4 px-6 max-w-xs">
                         <h3 className="font-bold text-gray-900 truncate">{product.name}</h3>
                         <p className="text-xs text-gray-500 line-clamp-1">{product.description}</p>
                       </td>
 
-                      {/* السعر */}
                       <td className="py-4 px-6">
                         <div className="flex items-center gap-2">
                           <span className="text-[#8A1C38] font-bold">
@@ -111,7 +107,6 @@ export default function Wishlist() {
                         </div>
                       </td>
 
-                      {/* الأزرار */}
                       <td className="py-4 px-6">
                         <div className="flex items-center justify-center gap-3">
                           <CartControl productId={product.id} stock={product.stock} />
@@ -137,7 +132,6 @@ export default function Wishlist() {
             </table>
           </div>
 
-          {/* عرض المنتجات كبطاقات (Cards) مرتبة وسلسة للهواتف المحمولة (أقل من md) */}
           <div className="md:hidden divide-y divide-gray-100">
             {wishlistItems.map((item) => {
               const product = item.products || item; 

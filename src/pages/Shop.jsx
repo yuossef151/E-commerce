@@ -12,7 +12,7 @@ export default function Shop() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [favorites, setFavorites] = useState({});
-  const [actionLoadingId, setActionLoadingId] = useState(null); // للودينج المفضلة
+  const [actionLoadingId, setActionLoadingId] = useState(null); 
 
   useEffect(() => {
     async function loadData() {
@@ -270,7 +270,6 @@ export default function Shop() {
                     </span>
                   )}
 
-                  {/* Add to Cart يتحول لـ  -  1  +  لما المنتج يبقى في العربة */}
                   <CartControl productId={product.id} stock={product.stock} />
                 </div>
               </div>

@@ -95,7 +95,6 @@ export default function ProfileAndLogin() {
     <div className="flex items-center gap-2 sm:gap-4">
       {user ? (
         <div className="flex items-center gap-2.5 sm:gap-4">
-          {/* Wishlist Icon */}
           <NavLink
             to="/wishlist"
             className={({ isActive }) =>
@@ -117,7 +116,6 @@ export default function ProfileAndLogin() {
             )}
           </NavLink>
 
-          {/* Cart Icon with Counter */}
           <NavLink
             to="/cart"
             className={({ isActive }) =>
@@ -139,7 +137,6 @@ export default function ProfileAndLogin() {
             )}
           </NavLink>
 
-          {/* Profile Dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsOpen(!isOpen)}

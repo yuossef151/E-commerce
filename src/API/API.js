@@ -1,6 +1,5 @@
-import { supabase } from "../Supabase"; // تأكد من المسار الصحيح حسب مكان ملف الـ Supabase.js
+import { supabase } from "../Supabase"; 
 
-// دالة تسجيل الدخول
 export async function loginUser(email, password) {
   const { data, error } = await supabase.auth.signInWithPassword({
     email: email.trim().toLowerCase(),
@@ -9,7 +8,6 @@ export async function loginUser(email, password) {
   return { data, error };
 }
 
-// دالة إنشاء حساب جديد
 export async function registerUser(email, password) {
   const { data, error } = await supabase.auth.signUp({
     email: email.trim().toLowerCase(),
@@ -203,70 +201,6 @@ export async function removeFromCart(productId) {
 }
 
 
-// export async function createOrder(shippingData) {
-//   const { data: { session } } = await supabase.auth.getSession();
-//   if (!session) throw new Error("User not authenticated");
-
-//   const userId = session.user.id;
-
-//   const { data: cartItems, error: cartError } = await supabase
-//     .from("cart_items")
-//     .select("product_id, quantity, products(price, discount_price)")
-//     .eq("user_id", userId);
-
-//   if (cartError) throw cartError;
-//   if (!cartItems || cartItems.length === 0) {
-//     throw new Error("cart is empty");
-//   }
-
-//   const totalPrice = cartItems.reduce((acc, item) => {
-//     const prodPrice = item.products.discount_price || item.products.price || 0;
-//     return acc + prodPrice * item.quantity;
-//   }, 0);
-
-//   const { data: orderData, error: orderError } = await supabase
-//     .from("orders")
-//     .insert([
-//       {
-//         user_id: userId,
-//         total_price: totalPrice, // أو total_amount حسب عمود جدولك
-//         shipping_address: shippingData.address || null,
-//         phone: shippingData.phone || null,
-//         status: "pending",
-//       },
-//     ])
-//     .select()
-//     .single();
-
-//   if (orderError) throw orderError;
-
-//   const orderId = orderData.id;
-
-//   const orderItemsData = cartItems.map((item) => ({
-//     order_id: orderId,
-//     product_id: item.product_id,
-//     quantity: item.quantity,
-//     price: item.products.discount_price || item.products.price,
-//   }));
-
-//   const { error: itemsError } = await supabase
-//     .from("order_items")
-//     .insert(orderItemsData);
-
-//   if (itemsError) throw itemsError;
-
-//   const { error: clearCartError } = await supabase
-//     .from("cart_items")
-//     .delete()
-//     .eq("user_id", userId);
-
-//   if (clearCartError) {
-//     console.error("Error clearing cart after checkout:", clearCartError);
-//   }
-
-//   return orderData;
-// }
-
 
 export async function sendContactMessage({ name, email, message }) {
   const {
@@ -284,7 +218,6 @@ export async function sendContactMessage({ name, email, message }) {
   if (error) throw error;
 }
 
-// جلب بروفايل المستخدم
 export async function getMyProfile() {
   const {
     data: { session },
@@ -301,7 +234,6 @@ export async function getMyProfile() {
   return { ...data, id: session.user.id, email: session.user.email };
 }
 
-// تحديث بروفايل المستخدم
 export async function updateMyProfile({ full_name, phone, address }) {
   const {
     data: { session },
@@ -317,7 +249,6 @@ export async function updateMyProfile({ full_name, phone, address }) {
   if (!data?.length) throw new Error("Profile row not found");
 }
 
-// جلب طلبات المستخدم
 export async function getMyOrders() {
   const { data: { session } } = await supabase.auth.getSession();
   if (!session) return [];
@@ -347,7 +278,6 @@ export async function getMyOrders() {
   }
   return data || [];
 }
-// تسجيل الخروج
 export async function signOut() {
   const { error } = await supabase.auth.signOut();
   if (error) throw error;
@@ -403,7 +333,6 @@ export async function setCartQuantity(productId, quantity) {
   return quantity;
 }
 
-// Cart rows with their products, for the checkout page
 export async function getCheckoutItems() {
   const {
     data: { session },
@@ -420,7 +349,6 @@ export async function getCheckoutItems() {
   return (data || []).filter((i) => i.products);
 }
 
-// Creates the order from the cart. Returns the new order id.
 export async function checkout({ customer_name, phone, address }) {
   const { data, error } = await supabase.rpc("checkout_cart", {
     p_customer_name: customer_name,
@@ -431,34 +359,3 @@ export async function checkout({ customer_name, phone, address }) {
   return data;
 }
 
-// Profile functions used by the Profile page (skip them if you already added them)
-// export async function getMyProfile() {
-//   const {
-//     data: { session },
-//   } = await supabase.auth.getSession();
-//   if (!session) return null;
-
-//   const { data, error } = await supabase
-//     .from("profiles")
-//     .select("full_name, phone, address, created_at")
-//     .eq("id", session.user.id)
-//     .maybeSingle();
-//   if (error) throw error;
-
-//   return { ...data, id: session.user.id, email: session.user.email };
-// }
-
-// export async function updateMyProfile({ full_name, phone, address }) {
-//   const {
-//     data: { session },
-//   } = await supabase.auth.getSession();
-//   if (!session) throw new Error("Not signed in");
-
-//   const { data, error } = await supabase
-//     .from("profiles")
-//     .update({ full_name, phone, address })
-//     .eq("id", session.user.id)
-//     .select("id");
-//   if (error) throw error;
-//   if (!data?.length) throw new Error("Profile row not found");
-// }

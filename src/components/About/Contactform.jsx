@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import { sendContactMessage } from "../../API/API";
 
-// Demo details (made up): replace them if this ever becomes a real store
 const CONTACT = {
   email: "support@techhub.example",
   phone: "+1 (555) 013-4567",
@@ -22,7 +21,7 @@ const CONTACT = {
 };
 
 const MAX_MESSAGE = 1000;
-const COOLDOWN_MS = 30000; // stop people from sending many messages in a row
+const COOLDOWN_MS = 30000; 
 const COOLDOWN_KEY = "contact_last_sent";
 
 const validationSchema = Yup.object({
@@ -56,7 +55,6 @@ function markSent() {
   try {
     localStorage.setItem(COOLDOWN_KEY, String(Date.now()));
   } catch {
-    // storage may be blocked (private mode), ignore
   }
 }
 
@@ -70,7 +68,6 @@ export default function ContactForm() {
     onSubmit: async (values, { resetForm }) => {
       setServerError("");
 
-      // Hidden "website" field: real people never fill it, bots often do
       if (values.website) {
         setSent(true);
         resetForm();
@@ -121,7 +118,6 @@ export default function ContactForm() {
     <section id="contact" className="w-full py-8 scroll-mt-6">
       <div className="lg:px-10 px-4">
         <div className="grid gap-4 lg:grid-cols-5">
-          {/* INFO PANEL */}
           <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#6b1128] via-[#8f1a36] to-[#c0405c] p-7 text-white shadow-lg lg:col-span-2 md:p-9">
             <div className="absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
 
@@ -153,7 +149,6 @@ export default function ContactForm() {
             </ul>
           </div>
 
-          {/* FORM */}
           <div className="rounded-[28px] border border-gray-200 bg-white p-7 shadow-sm lg:col-span-3 md:p-9">
             {sent ? (
               <div
@@ -202,7 +197,6 @@ export default function ContactForm() {
                   noValidate
                   className="mt-6 flex flex-col gap-5"
                 >
-                  {/* honeypot: hidden from people and screen readers */}
                   <div className="absolute -left-[9999px]" aria-hidden="true">
                     <label htmlFor="website">Website</label>
                     <input

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { Zap } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
-// Replace the URLs with your real social pages
 const SOCIALS = [
   { label: "Facebook", href: "https://facebook.com", icon: FaFacebookF },
   { label: "Instagram", href: "https://instagram.com", icon: FaInstagram },

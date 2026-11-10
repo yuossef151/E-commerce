@@ -3,14 +3,12 @@ import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { getProducts } from "../../API/API";
 
-// Products whose photos appear in the hero (matched by name, like the slider)
 const HERO_PRODUCTS = [
   "Razer BlackWidow V4 Pro",
   "Meta Quest 3",
   "Sony PlayStation 5 (PS5)",
 ];
 
-// Position / tilt of each photo tile
 const TILE_POSITIONS = [
   "left-[2%] top-[4%] w-[46%] -rotate-6",
   "right-[2%] top-[22%] w-[46%] rotate-6",
@@ -42,7 +40,6 @@ export default function AboutHero() {
     <section className="w-full py-8">
       <div className="lg:px-10 px-4">
         <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#14152a] via-[#111827] to-[#08090d] text-white shadow-[0_25px_80px_rgba(0,0,0,0.35)]">
-          {/* glow */}
           <div className="absolute -right-24 top-1/2 -translate-y-1/2 h-[420px] w-[420px] rounded-full bg-[#c0405c]/25 blur-[110px] pointer-events-none" />
 
           <div
@@ -50,7 +47,6 @@ export default function AboutHero() {
               items.length ? "md:grid-cols-2" : ""
             }`}
           >
-            {/* TEXT */}
             <div className="flex flex-col items-start gap-5">
               <div className="flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-[#ff6b8a] animate-pulse" />
@@ -81,7 +77,6 @@ export default function AboutHero() {
               </div>
             </div>
 
-            {/* PRODUCT COLLAGE */}
             {items.length > 0 && (
               <div className="relative h-[280px] md:h-[380px]" aria-hidden="true">
                 {items.map((product, i) => (

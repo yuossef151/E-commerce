@@ -71,10 +71,8 @@ export default function Login() {
 
   return (
     <main className="min-h-screen bg-[#e5e6e8] text-gray-800 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 pt-24">
-      {/* البطاقة الرئيسية بتصميم مقسم ومتجاوب */}
       <div className="w-full max-w-4xl bg-white border border-gray-200 rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
         
-        {/* القسم الأيسر: نموذج تسجيل الدخول */}
         <div className="p-6 sm:p-10 lg:p-12 flex flex-col justify-center">
           <header className="mb-6">
             <h1 className="text-2xl sm:text-3xl font-extrabold text-[#8A1C38]">Login</h1>
@@ -91,7 +89,6 @@ export default function Login() {
           )}
 
           <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
-            {/* Email */}
             <div className="flex flex-col gap-1">
               <label htmlFor="email" className="text-xs font-medium text-gray-500">
                 Email*
@@ -116,7 +113,6 @@ export default function Login() {
               {emailError && <p className="text-xs text-red-500">{errors.email}</p>}
             </div>
 
-            {/* Password */}
             <div className="flex flex-col gap-1">
               <label htmlFor="password" className="text-xs font-medium text-gray-500">
                 Password*
@@ -164,7 +160,6 @@ export default function Login() {
               </label>
             </div>
 
-            {/* زر تسجيل الدخول */}
             <button
               type="submit"
               disabled={isSubmitting}
@@ -181,7 +176,6 @@ export default function Login() {
             </button>
           </form>
 
-          {/* وسائل تسجيل الدخول البديلة */}
           <div className="mt-8 text-center">
             <div className="relative mb-4">
               <div className="absolute inset-0 flex items-center">
@@ -223,7 +217,6 @@ export default function Login() {
           </div>
         </div>
 
-        {/* القسم الأيمن: البانر الترحيبي بلون أحمر غامق */}
         <div className="bg-[#8A1C38] p-8 sm:p-12 lg:p-16 flex flex-col items-center justify-center text-center text-white relative">
           <div className="max-w-sm">
             <h2 className="text-2xl sm:text-3xl font-extrabold mb-4">Welcome back!</h2>

@@ -10,11 +10,10 @@ import {
   Clock,
   ArrowUp,
 } from "lucide-react";
-import { supabase } from "../../Supabase"; // تأكد من مطابقة مسار استيراد سوبابيس لديك
+import { supabase } from "../../Supabase"; 
 import FooterBrand from "./Footerbrand";
 import FooterColumn from "./Footercolumn";
 
-// Demo details (made up): change them to your own
 const BRAND = {
   name: "TechHub",
   text: "Original gaming gear, consoles, laptops and phones from trusted brands, delivered to your door with honest prices and real support.",
@@ -52,7 +51,6 @@ export default function Footer() {
 
     checkUserSession();
 
-    // الاستماع لتغيرات تسجيل الدخول والخروج فورياً
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (_event, session) => {
         setUser(session?.user ?? null);
@@ -64,7 +62,6 @@ export default function Footer() {
     };
   }, []);
 
-  // تحديد روابط الحساب بناءً على حالة تسجيل الدخول
   const accountLinks = user
     ? [
         { label: "Cart", to: "/cart" },
@@ -91,11 +88,9 @@ export default function Footer() {
 
   return (
     <footer className=" w-full bg-[#090a10] text-gray-400">
-      {/* thin brand-colour line on top */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-[#8f1a36] to-transparent" />
 
       <div className="container mx-auto px-4">
-        {/* PERKS STRIP */}
         <ul className="grid grid-cols-2 gap-4 border-b border-white/10 py-8 lg:grid-cols-4">
           {PERKS.map(({ icon: Icon, title, text }) => (
             <li key={title} className="flex items-center gap-3">
@@ -110,7 +105,6 @@ export default function Footer() {
           ))}
         </ul>
 
-        {/* MAIN COLUMNS */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 py-12 md:grid-cols-4 lg:grid-cols-12">
           <div className="col-span-2 md:col-span-4 lg:col-span-4">
             <FooterBrand name={BRAND.name} text={BRAND.text} />
@@ -121,7 +115,6 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            {/* تمرير الروابط الديناميكية بناءً على حالة الـ User */}
             <FooterColumn title="Account" links={accountLinks} />
           </div>
 
@@ -156,7 +149,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* BOTTOM BAR */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 text-center sm:flex-row sm:text-left">
           <p className="text-xs text-gray-500">
             © {year} {BRAND.name}. All rights reserved.

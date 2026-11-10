@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-// Edit these answers so they match your real policies
 const FAQS = [
   {
     q: "Are your products original?",

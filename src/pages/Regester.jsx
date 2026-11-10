@@ -69,10 +69,8 @@ export default function Regester() {
 
   return (
     <main className="min-h-screen w-full bg-[#e5e6e8] text-[#0b0f19] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 pt-24">
-      {/* البطاقة الرئيسية بتصميم مقسم ومتجاوب */}
       <div className="w-full max-w-4xl bg-white border border-gray-200 rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
         
-        {/* القسم الأيسر: نموذج التسجيل (Signup) */}
         <div className="p-6 sm:p-10 lg:p-12 flex flex-col justify-center">
           <header className="mb-6">
             <h1 className="text-2xl sm:text-3xl font-extrabold text-[#8A1C38]">Signup</h1>
@@ -98,7 +96,6 @@ export default function Regester() {
           )}
 
           <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
-            {/* Email */}
             <div className="flex flex-col gap-1">
               <label htmlFor="email" className="text-xs font-medium text-gray-500">
                 Email*
@@ -123,7 +120,6 @@ export default function Regester() {
               {emailError && <p className="text-xs text-red-500">{errors.email}</p>}
             </div>
 
-            {/* Password */}
             <div className="flex flex-col gap-1">
               <label htmlFor="password" className="text-xs font-medium text-gray-500">
                 Password*
@@ -157,7 +153,6 @@ export default function Regester() {
               {passwordError && <p className="text-xs text-red-500">{errors.password}</p>}
             </div>
 
-            {/* Confirm Password */}
             <div className="flex flex-col gap-1">
               <label htmlFor="confirmPassword" className="text-xs font-medium text-gray-500">
                 Confirm Password*
@@ -191,7 +186,6 @@ export default function Regester() {
               {confirmPasswordError && <p className="text-xs text-red-500">{errors.confirmPassword}</p>}
             </div>
 
-            {/* Terms and conditions checkbox */}
             <div className="flex items-center gap-3 my-1">
               <label className="relative flex items-center gap-3 cursor-pointer select-none">
                 <input
@@ -207,7 +201,6 @@ export default function Regester() {
             </div>
             {touched.terms && errors.terms && <p className="text-xs text-red-500">{errors.terms}</p>}
 
-            {/* زر التسجيل */}
             <button
               type="submit"
               disabled={isSubmitting}
@@ -224,7 +217,6 @@ export default function Regester() {
             </button>
           </form>
 
-          {/* وسائل التسجيل البديلة */}
           <div className="mt-8 text-center">
             <div className="relative mb-4">
               <div className="absolute inset-0 flex items-center">
@@ -266,7 +258,6 @@ export default function Regester() {
           </div>
         </div>
 
-        {/* القسم الأيمن: البانر الترحيبي بلون أحمر غامق */}
         <div className="bg-[#8A1C38] p-8 sm:p-12 lg:p-16 flex flex-col items-center justify-center text-center text-white relative">
           <div className="max-w-sm">
             <h2 className="text-2xl sm:text-3xl font-extrabold mb-4">Create Account</h2>

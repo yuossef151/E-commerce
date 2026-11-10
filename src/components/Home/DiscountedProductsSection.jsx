@@ -141,7 +141,6 @@ export default function DiscountedProductsSection({ onLoaded }) {
             </p>
           </div>
 
-          {/* عداد الوقت متجاوب تماماً */}
           <div className="flex items-center gap-1.5 sm:gap-3 flex-wrap justify-center">
             {timeUnits.map((unit, index) => (
               <div key={unit.label} className="flex items-center gap-1.5 sm:gap-3">
@@ -164,7 +163,6 @@ export default function DiscountedProductsSection({ onLoaded }) {
         </div>
       </div>
 
-      {/* شبكة عرض المنتجات المخفضة */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         {discountedProducts.map((prod) => {
           const discountPercent =

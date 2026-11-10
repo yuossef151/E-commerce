@@ -7,7 +7,6 @@ import {
   Headset,
 } from "lucide-react";
 
-// Edit the text so it matches your real policies
 const FEATURES = [
   {
     icon: ShieldCheck,

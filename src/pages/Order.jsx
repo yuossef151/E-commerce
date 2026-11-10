@@ -34,7 +34,6 @@ export default function Order() {
     fetchOrders();
   }, []);
 
-  // دالة لتنسيق شكل ولون حالة الطلب (Status Badge) تم دعم Completed و Delivered معاً
   const getStatusBadge = (status) => {
     const cleanStatus = status?.toLowerCase().trim();
     
@@ -120,7 +119,6 @@ export default function Order() {
               key={order.id}
               className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden transition hover:shadow-md"
             >
-              {/* رأس الطلب (معلومات أساسية) */}
               <div className="bg-gray-50/70 px-6 py-4 border-b border-gray-100 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex flex-col gap-1">
                   <span className="text-xs text-gray-400 font-semibold uppercase tracking-wider">
@@ -155,7 +153,6 @@ export default function Order() {
                 <div>{getStatusBadge(order.status)}</div>
               </div>
 
-              {/* تفاصيل المنتجات داخل الطلب */}
               <div className="p-6">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">
                   Order Items
@@ -203,7 +200,6 @@ export default function Order() {
                   ))}
                 </div>
 
-                {/* معلومات الشحن الإضافية */}
                 {(order.shipping_address || order.phone) && (
                   <div className="mt-6 pt-4 border-t border-gray-100 flex flex-col sm:flex-row justify-between gap-4 text-xs text-gray-500">
                     {order.shipping_address && (

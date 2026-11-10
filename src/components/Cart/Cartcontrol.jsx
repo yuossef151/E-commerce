@@ -1,17 +1,13 @@
 import { Loader2 } from "lucide-react";
-// import { useCartQuantity } from "../context/CartQuantityContext";
 import QuantityStepper from "./Quantitystepper";
 import { useCartQuantity } from "./Cartquantitycontext";
 
-// Drop-in replacement for the "Add to Cart" button on product cards:
-// <CartControl productId={product.id} stock={product.stock} />
 export default function CartControl({ productId, stock }) {
   const { quantities, busyId, setQuantity } = useCartQuantity();
 
   const quantity = quantities[productId] || 0;
   const busy = busyId === productId;
 
-  // Never let the customer add more than what is in stock (or 99 if unknown)
   const max = stock > 0 ? Math.min(stock, 99) : 99;
 
   if (quantity === 0) {

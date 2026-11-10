@@ -97,10 +97,8 @@ export default function Cart() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           
-          {/* قسم المنتجات (الجدول للشاشات الكبيرة + البطاقات للهواتف) */}
           <div className="lg:col-span-2 bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
             
-            {/* الجدول للشاشات المتوسطة والكبيرة (md فما فوق) */}
             <div className="hidden md:block overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
@@ -165,7 +163,6 @@ export default function Cart() {
               </table>
             </div>
 
-            {/* عرض المنتجات كبطاقات (Cards) مرتبة للهواتف المحمولة (أقل من md) */}
             <div className="md:hidden divide-y divide-gray-100">
               {cartItems.map((item) => {
                 const product = item.products || item;
@@ -190,7 +187,6 @@ export default function Cart() {
                     </div>
 
                     <div className="flex items-center justify-between pt-2 border-t border-gray-50 gap-2">
-                      {/* أداة التحكم بالكمية */}
                       <div>
                         <QuantityStepper
                           tone="light"
@@ -202,7 +198,6 @@ export default function Cart() {
                         />
                       </div>
 
-                      {/* زر الحذف */}
                       <button
                         onClick={() => !isDeleting && handleDelete(product.id)}
                         disabled={isDeleting}
@@ -226,7 +221,6 @@ export default function Cart() {
 
           </div>
 
-          {/* قسم ملخص الطلب (Order Summary) */}
           <div className="bg-white rounded-2xl shadow-md p-6 border border-gray-100 h-fit">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Order Summary</h2>
             <div className="flex justify-between mb-4 text-gray-600 text-sm sm:text-base">

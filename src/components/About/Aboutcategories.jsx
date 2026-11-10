@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { Keyboard, Gamepad2, Laptop, Smartphone, Glasses, ArrowUpRight } from "lucide-react";
 
-// Same colour language as the home slider, so the site feels consistent
 const CATEGORIES = [
   {
     icon: Keyboard,

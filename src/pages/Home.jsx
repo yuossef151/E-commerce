@@ -23,7 +23,6 @@ export default function Home() {
   return (
     <div className="relative bg-[#e5e6e8] min-h-screen overflow-x-hidden">
 
-      {/* HOME PAGE CONTENT */}
       <div className={pageLoading ? "invisible pt-[90px] sm:pt-[100px]" : "visible pt-[90px] sm:pt-[100px]"}>
 
         <FeaturedSlider
@@ -39,7 +38,6 @@ export default function Home() {
         />
       </div>
 
-      {/* LOADING OVERLAY - HOME CONTENT ONLY */}
       {pageLoading && (
         <div className="absolute inset-0 z-40 min-h-screen bg-[#f4f4f6] flex items-center justify-center px-4">
 
@@ -90,7 +88,6 @@ export default function Home() {
               `}
             </style>
 
-            {/* مؤشرات الحالة للثلاثة أقسام أسفل اللودينج */}
             <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-gray-400 flex-wrap justify-center">
               <span className="flex items-center gap-1">
                 <span className={`w-2 h-2 rounded-full ${loadedSections.featured ? "bg-green-500" : "bg-[#8A1C38] animate-pulse"}`} />

@@ -1,7 +1,6 @@
 import { useId } from "react";
 import { Link } from "react-router-dom";
 
-// links: [{ label: "About us", to: "/about" }]
 export default function FooterColumn({ title, links }) {
   const headingId = useId();
 

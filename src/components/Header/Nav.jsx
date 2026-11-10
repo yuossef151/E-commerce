@@ -13,7 +13,6 @@ export default function Nav({ isOpen, setIsOpen }) {
     { name: "Shop", path: "/Shop" },
   ];
 
-  // إغلاق القائمة عند النقر خارجها
   useEffect(() => {
     function handleClickOutside(event) {
       if (drawerRef.current && !drawerRef.current.contains(event.target)) {
@@ -28,14 +27,12 @@ export default function Nav({ isOpen, setIsOpen }) {
     };
   }, [isOpen, setIsOpen]);
 
-  // إغلاق القائمة عند تغيير المسار
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname, setIsOpen]);
 
   return (
     <>
-      {/* الروابط للشاشات الكبيرة (Desktop) */}
       <nav className="hidden md:block">
         <ul className="flex gap-6 text-[20px] font-medium">
           {mynav.map((el, indx) => {
@@ -66,7 +63,6 @@ export default function Nav({ isOpen, setIsOpen }) {
         </ul>
       </nav>
 
-      {/* القائمة الجانبية للموبايل (Mobile Drawer with Animation) */}
       <AnimatePresence>
         {isOpen && (
           <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs md:hidden flex justify-end">
@@ -78,7 +74,6 @@ export default function Nav({ isOpen, setIsOpen }) {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="w-[75%] max-w-sm bg-white h-full shadow-2xl flex flex-col p-6 pt-20 relative"
             >
-              {/* زر الإغلاق داخل القائمة */}
               <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 text-gray-700 hover:text-[#8A1C38] transition cursor-pointer"

@@ -1,10 +1,5 @@
 import { Minus, Plus, Trash2, Loader2 } from "lucide-react";
 
-// [ - ] 2 [ + ]
-// tone="brand" : filled maroon (product cards)
-// tone="light" : white with a border (cart table)
-// allowRemove  : when true, the "-" button becomes a trash icon at quantity 1
-//                and onChange(0) is called (removes the product)
 export default function QuantityStepper({
   value,
   max = 99,

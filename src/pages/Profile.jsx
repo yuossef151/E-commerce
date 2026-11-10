@@ -33,7 +33,6 @@ const validationSchema = Yup.object({
   address: Yup.string().trim().max(300, "Address is too long"),
 });
 
-// Colour for each order status (matches whatever text your dashboard saves)
 function statusStyle(status) {
   const s = (status || "").toLowerCase();
   if (["delivered", "completed", "resolved"].includes(s))
@@ -67,7 +66,6 @@ export default function Profile() {
         const p = await getMyProfile();
         if (!alive) return;
 
-        // Not signed in: send to login, and come back here afterwards
         if (!p) {
           navigate("/login", { replace: true, state: { from: location } });
           return;
@@ -75,7 +73,6 @@ export default function Profile() {
 
         setProfile(p);
 
-        // A failure in orders should not break the whole page
         const o = await getMyOrders(p.id).catch(() => []);
         if (alive) setOrders(o);
       } catch (err) {
@@ -178,7 +175,6 @@ export default function Profile() {
 
   return (
     <main className="w-full pb-12 pt-[100px] bg-[#e5e6e8]">
-      {/* HEADER CARD */}
       <section className="w-full py-8">
         <div className=" px-4">
           <div className="relative overflow-hidden mb-10 rounded-[28px] border border-white/10 bg-gradient-to-br from-[#14152a] via-[#111827] to-[#08090d] p-7 text-white shadow-[0_25px_80px_rgba(0,0,0,0.35)] md:p-10">
@@ -222,7 +218,6 @@ export default function Profile() {
 
       <section className="w-full">
         <div className=" mx-auto grid gap-4 px-4 lg:grid-cols-5">
-          {/* DETAILS FORM */}
           <div className="rounded-[28px] border border-gray-200 bg-white p-7 shadow-sm md:p-9 lg:col-span-3">
             <h2 className="text-2xl font-extrabold text-[#8f1a36]">Personal details</h2>
             <p className="mt-1 text-sm text-gray-500">
@@ -354,7 +349,6 @@ export default function Profile() {
             </form>
           </div>
 
-          {/* RECENT ORDERS */}
           <div className="rounded-[28px] border border-gray-200 bg-white p-7 shadow-sm md:p-9 lg:col-span-2">
             <h2 className="text-2xl font-extrabold text-gray-900">Recent orders</h2>
 
