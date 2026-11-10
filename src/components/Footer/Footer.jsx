@@ -71,7 +71,6 @@ export default function Footer() {
     : [
         { label: "Sign in", to: "/login" },
         { label: "Create account", to: "/Regester" },
-        { label: "My profile", to: "/profile" },
       ];
 
   const contactItems = [
