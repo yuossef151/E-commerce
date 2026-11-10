@@ -21,7 +21,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative bg-gray-100 min-h-screen overflow-x-hidden">
+    <div className="relative bg-[#e5e6e8] min-h-screen overflow-x-hidden">
 
       {/* HOME PAGE CONTENT */}
       <div className={pageLoading ? "invisible pt-[90px] sm:pt-[100px]" : "visible pt-[90px] sm:pt-[100px]"}>

@@ -185,7 +185,7 @@ export default function FeaturedSlider({ onLoaded }) {
     <section className="w-full py-4 sm:py-8">
       <style>{showcaseStyles}</style>
 
-      <div className="container mx-auto px-4">
+      <div className=" lg:px-10 px-4">
         <div className="relative overflow-hidden rounded-2xl sm:rounded-[28px] border border-white/10 bg-[#090a10] text-white shadow-[0_25px_80px_rgba(0,0,0,0.35)]">
           {featuredProducts.map((p, i) => (
             <div

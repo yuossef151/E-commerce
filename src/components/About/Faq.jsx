@@ -30,7 +30,7 @@ export default function FAQ() {
 
   return (
     <section className="w-full py-8">
-      <div className="container mx-auto px-4">
+      <div className="lg:px-10 px-4">
         <div className="mb-8 max-w-2xl">
           <p className="text-xs font-bold tracking-[3px] uppercase text-gray-900">
             FAQ

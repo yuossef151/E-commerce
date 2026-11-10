@@ -119,7 +119,7 @@ export default function ContactForm() {
 
   return (
     <section id="contact" className="w-full py-8 scroll-mt-6">
-      <div className="container mx-auto px-4">
+      <div className="lg:px-10 px-4">
         <div className="grid gap-4 lg:grid-cols-5">
           {/* INFO PANEL */}
           <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#6b1128] via-[#8f1a36] to-[#c0405c] p-7 text-white shadow-lg lg:col-span-2 md:p-9">

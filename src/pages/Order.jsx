@@ -80,7 +80,7 @@ export default function Order() {
 
   if (error) {
     return (
-      <div className="container mx-auto px-4 pb-16 pt-[100px] bg-gray-200">
+      <div className="lg:px-10px-4 pb-16 pt-[100px] bg-gray-200">
         <div className="mx-auto flex max-w-md items-start gap-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 shadow-sm">
           <AlertCircle size={20} className="mt-0.5 shrink-0" />
           <span>{error}</span>
@@ -90,7 +90,7 @@ export default function Order() {
   }
 
   return (
-    <div className="container mx-auto px-10 pb-10 pt-[120px] min-h-screen bg-gray-100">
+    <div className="lg:px-10 px-10 pb-10 pt-[120px] min-h-screen bg-[#e5e6e8]">
       <h1 className="text-3xl font-extrabold text-[#8A1C38] mb-10 flex items-center gap-3">
         <Package size={34} /> My Orders
       </h1>

@@ -91,7 +91,7 @@ export default function HomeProductsSection({ onLoaded }) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 sm:py-12">
+    <div className=" px-4 lg:px-10 py-8 sm:py-12">
       <div className="flex justify-between items-center mb-6 sm:mb-8">
         <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#8A1C38]">Featured Products</h2>
       </div>

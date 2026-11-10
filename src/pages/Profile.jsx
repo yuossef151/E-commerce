@@ -177,7 +177,7 @@ export default function Profile() {
     : null;
 
   return (
-    <main className="w-full pb-12 pt-[100px] bg-gray-200">
+    <main className="w-full pb-12 pt-[100px] bg-[#e5e6e8]">
       {/* HEADER CARD */}
       <section className="w-full py-8">
         <div className=" px-4">

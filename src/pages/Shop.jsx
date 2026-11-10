@@ -157,7 +157,7 @@ export default function Shop() {
   }
 
   return (
-    <div className=" mx-auto px-4 py-[120px] bg-gray-100 min-h-screen">
+    <div className=" mx-auto px-4 py-[120px] bg-[#e5e6e8] min-h-screen">
       <h1 className="text-[40px] font-bold text-[#8A1C38] mb-10">
         Available Products
       </h1>

@@ -52,7 +52,7 @@ export default function Wishlist() {
   }
 
   return (
-    <div className=" px-4 sm:px-6 lg:px-10 py-24 sm:py-28 min-h-screen bg-gray-100">
+    <div className=" px-4 sm:px-6 lg:px-10 py-24 sm:py-28 min-h-screen bg-[#e5e6e8]">
       <h1 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-[#8A1C38] mb-6 sm:mb-8 flex items-center gap-3">
         My Wishlist
       </h1>

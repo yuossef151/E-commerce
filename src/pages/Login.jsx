@@ -70,7 +70,7 @@ export default function Login() {
   const passwordError = touched.password && errors.password;
 
   return (
-    <main className="min-h-screen bg-gray-100 text-gray-800 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 pt-24">
+    <main className="min-h-screen bg-[#e5e6e8] text-gray-800 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 pt-24">
       {/* البطاقة الرئيسية بتصميم مقسم ومتجاوب */}
       <div className="w-full max-w-4xl bg-white border border-gray-200 rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
         

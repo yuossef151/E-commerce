@@ -40,7 +40,7 @@ export default function AboutHero() {
 
   return (
     <section className="w-full py-8">
-      <div className="container mx-auto px-4">
+      <div className="lg:px-10 px-4">
         <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#14152a] via-[#111827] to-[#08090d] text-white shadow-[0_25px_80px_rgba(0,0,0,0.35)]">
           {/* glow */}
           <div className="absolute -right-24 top-1/2 -translate-y-1/2 h-[420px] w-[420px] rounded-full bg-[#c0405c]/25 blur-[110px] pointer-events-none" />

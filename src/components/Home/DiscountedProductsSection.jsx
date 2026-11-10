@@ -122,7 +122,7 @@ export default function DiscountedProductsSection({ onLoaded }) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-6 sm:py-8">
+    <div className=" px-4 lg:px-10 py-6 sm:py-8">
       <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl mb-6 sm:mb-8 bg-gradient-to-r from-[#5d1025] via-[#8A1C38] to-[#b52b4d] p-5 sm:p-6 md:p-8 shadow-xl">
         <div className="absolute -top-20 -right-16 w-64 h-64 rounded-full bg-white/10 blur-3xl" />
         <div className="absolute -bottom-24 -left-10 w-64 h-64 rounded-full bg-black/20 blur-3xl" />

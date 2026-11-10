@@ -165,7 +165,7 @@ export default function Checkout() {
 
   if (loadError) {
     return (
-      <div className="container mx-auto px-4 py-24 sm:py-28">
+      <div className="lg:px-10 px-4 py-24 sm:py-28">
         <div
           role="alert"
           className="mx-auto flex max-w-md items-start gap-2 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"
@@ -180,7 +180,7 @@ export default function Checkout() {
   // ORDER PLACED
   if (placed) {
     return (
-      <main className="container mx-auto px-4 py-24 sm:py-28">
+      <main className="lg:px-10 px-4 py-24 sm:py-28">
         <div
           role="status"
           className="mx-auto flex max-w-lg flex-col items-center gap-4 rounded-[28px] border border-gray-200 bg-white p-6 sm:p-8 md:p-12 text-center shadow-sm"
@@ -232,7 +232,7 @@ export default function Checkout() {
   // EMPTY CART
   if (items.length === 0) {
     return (
-      <main className="container mx-auto px-4 py-24 sm:py-28">
+      <main className="lg:px-10 px-4 py-24 sm:py-28">
         <div className="mx-auto flex max-w-md flex-col items-center gap-3 rounded-[28px] border border-gray-200 bg-white p-6 sm:p-10 text-center shadow-sm">
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#8f1a36]/10 text-[#8f1a36]">
             <ShoppingCart size={26} />
@@ -252,7 +252,7 @@ export default function Checkout() {
   }
 
   return (
-    <main className=" lg:px-10 px-4 py-24 sm:py-28 pb-12  bg-gray-100">
+    <main className=" lg:px-10 px-4 py-24 sm:py-28 pb-12  bg-[#e5e6e8]">
       <h1 className="mb-6 sm:mb-8 flex items-center gap-3 text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#8f1a36]">
         <ShoppingCart size={30} className="sm:w-[34px] sm:h-[34px]" />
         Checkout
